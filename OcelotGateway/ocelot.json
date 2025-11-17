@@ -1,0 +1,19 @@
+{
+  "Routes": [
+    {
+      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamPathTemplate": "/gateway/products",
+      "DownstreamPathTemplate": "/api/product/getproducts",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "productsmicroservice.api",
+          "Port": 7000
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5243"
+  }
+}
