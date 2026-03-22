@@ -1,14 +1,54 @@
 {
   "Routes": [
     {
-      "UpstreamHttpMethod": [ "Get" ],
+      "UpstreamHttpMethod": [ "GET" ],
       "UpstreamPathTemplate": "/gateway/products",
       "DownstreamPathTemplate": "/api/product/getproducts",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "productsmicroservice.api",
-          "Port": 7000
+          "Host": "productservice.hhf5g5emefgufvev.centralus.azurecontainer.io",
+          "Port": 8080
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/gateway/AddItems",
+      "DownstreamPathTemplate": "/api/cart/AddCartItems",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cartservice.a9efcvh7drc9enbv.centralus.azurecontainer.io",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/gateway/login",
+      "DownstreamPathTemplate": "/api/auth/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice.frahazcmdnfmcpe0.centralus.azurecontainer.io",
+          "Port": 8080
+        }
+      ]
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/gateway/register",
+      "DownstreamPathTemplate": "/api/auth/register",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "userservice.frahazcmdnfmcpe0.centralus.azurecontainer.io",
+          "Port": 8080
         }
       ]
     }

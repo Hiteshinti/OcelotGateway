@@ -1,3 +1,4 @@
+version: "3.9"
 
 services:
   ocelotgateway:
@@ -9,9 +10,19 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - 5243:8000
+      - "5243:8000"
     networks:
       - ocelot-shared-network
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - c:/redis-cache:/data   # fixed typo (was redis-cahe)
+    networks:
+      - ocelot-shared-network   # use same network for communication
 
 networks:
   ocelot-shared-network:
