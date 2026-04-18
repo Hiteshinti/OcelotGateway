@@ -29,6 +29,25 @@
       }
     },
     {
+      "UpstreamHttpMethod": [ "GET" ],
+      "UpstreamPathTemplate": "/gateway/GetItems",
+      "DownstreamPathTemplate": "/api/cart/GetCartItemsById",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cartservice.a9efcvh7drc9enbv.centralus.azurecontainer.io",
+          "Port": 8080
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "AddQueriesToRequest": {
+        "userId": "Claims[sub]"
+      }
+    },
+    {
       "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/gateway/login",
       "DownstreamPathTemplate": "/api/auth/login",
