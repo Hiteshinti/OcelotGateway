@@ -7,7 +7,7 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "productservice.hhf5g5emefgufvev.centralus.azurecontainer.io",
+          "Host": "productsmicroservice.api",
           "Port": 8080
         }
       ]
@@ -19,13 +19,16 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "cartservice.a9efcvh7drc9enbv.centralus.azurecontainer.io",
-          "Port": 8080
+          "Host": "cartservice.api",
+          "Port": 9090
         }
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Authorization": "Authorization"
       }
     },
     {
@@ -35,16 +38,16 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "cartservice.a9efcvh7drc9enbv.centralus.azurecontainer.io",
-          "Port": 8080
+          "Host": "cartservice.api",
+          "Port": 9090
         }
       ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "Bearer",
         "AllowedScopes": []
       },
-      "AddQueriesToRequest": {
-        "userId": "Claims[sub]"
+      "AddHeadersToRequest": {
+        "Authorization": "Authorization"
       }
     },
     {
@@ -54,8 +57,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "userservice.frahazcmdnfmcpe0.centralus.azurecontainer.io",
-          "Port": 8080
+          "Host": "ecommerce.api",
+          "Port": 7070
         }
       ]
     },
@@ -66,8 +69,8 @@
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "userservice.frahazcmdnfmcpe0.centralus.azurecontainer.io",
-          "Port": 8080
+          "Host": "ecommerce.api",
+          "Port": 7070
         }
       ]
     }
