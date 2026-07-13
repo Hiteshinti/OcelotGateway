@@ -24,6 +24,18 @@ services:
     networks:
       - ocelot-shared-network   # use same network for communication
 
+  rabitmq:
+    image: rabbitmq:3.13.7-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=guest
+      - RABBITMQ_DEFAULT_PASS=guest 
+    networks:
+      - ocelot-shared-network   # use same network for communication
+
 networks:
   ocelot-shared-network:
     external: true

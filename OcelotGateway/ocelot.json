@@ -52,6 +52,25 @@
     },
     {
       "UpstreamHttpMethod": [ "POST" ],
+      "UpstreamPathTemplate": "/gateway/Checkout",
+      "DownstreamPathTemplate": "/api/cart/CartCheckOut",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "cartservice.api",
+          "Port": 9090
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "Authorization": "Authorization"
+      }
+    },
+    {
+      "UpstreamHttpMethod": [ "POST" ],
       "UpstreamPathTemplate": "/gateway/login",
       "DownstreamPathTemplate": "/api/auth/login",
       "DownstreamScheme": "http",
